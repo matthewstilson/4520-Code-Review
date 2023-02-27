@@ -1,1 +1,264 @@
-body {background-color: red;}
+/* TEXT RULES */
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+h1{
+    font-size: 72px;
+    font-weight: 600;
+}
+
+h2{
+    font-size: 45px;
+    font-weight: 700;
+}
+
+h3{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 40px;
+}
+
+p{
+    font-size: 18px;
+}
+
+p.p-small{
+    font-size: 14px;
+}
+
+/* the a.button tag sets the rules for all buttons to follow
+    things like transitions will be applied to every button with the button class */
+
+a.button{    
+    text-decoration: none;
+    display: inline-block;
+    padding: 5px 20px;
+    font-size: 22px;
+    border-radius: 30px;
+    transition: .5s;
+
+}
+
+a.button-green{
+    color: #9FB14B;
+    border: 3px solid #9FB14B; 
+}
+
+a.button-green:hover {
+    background: #9FB14B; 
+    color: white;
+}
+
+a.button-pink{
+    color: #CC36A2;
+    border: 3px solid #CC36A2;
+}
+
+a.button-pink:hover {
+    background: #CC36A2; 
+    color: white;
+}
+
+/* NORMALIZING RULES */
+
+*{
+    box-sizing: border-box;
+}
+
+body,html{
+    margin: 0;
+    min-height: 100vh;
+}
+
+img{
+    max-width: 100%;
+}
+
+/* CONSTRAINTS */
+
+.container{
+    max-width: 1440px;
+    margin: auto;
+}
+
+.wrapper{
+    padding: 0px 100px;
+}
+
+/* LAYOUT*/
+
+header{
+    display: flex;
+    justify-content: space-between;
+    /* justify content will take the space created using the display:display: flex; and put it in between the elements */
+    padding-top: 20px !important;
+    /* the wrapper class is more specific then the header class so the padding is being prioritized from the wrapper class writing !important will change the priority to the header class and make the log have 20px padding */
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+}
+
+.hero{
+    background: url(../images/sp-background.jpg);
+    min-height: 80vh;
+    padding: 1px;
+    position: relative;
+}
+
+.hero div{
+    position: absolute;
+    bottom: 0;
+}
+
+.pink-banner{
+    background: #CC36A2;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.green-banner{
+    border-top: 3px solid #9FB14B;
+    border-bottom: 3px solid #9FB14B;
+    text-align: center;
+    color: #9FB14B;
+    padding: 20px; 
+    /* The padding will place the margin inside of the element */
+}
+
+
+.trip-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 40px;
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+}
+
+.trip-grid--reverse > img{
+    grid-column:2;
+}
+
+.trip-grid--reverse > div{
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.popular-choice {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 40px;
+}
+
+
+.footer{
+    background: #333333;
+    color: white;
+    padding-top: 50px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 40px;
+}
+
+/* selects the second child of the parent div to midify it */
+.footer-grid div:nth-child(2){
+    text-align: center;
+    margin-top: 0;
+    padding: 0;
+    padding-bottom: 50px;
+}
+
+/* NAVIGATION */
+
+nav ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav.primary-nav ul{
+    display: flex;
+    grid-gap: 20px;
+}
+
+nav ul a{
+    text-decoration: none;
+}
+
+nav.primary-nav ul a {
+    color: #333333;
+}
+
+footer nav ul a {
+    color: white;
+}
+
+/* MEDIA QUERIES */
+
+/* Media Queries have to be at the bottom of the CSS document */
+
+@media screen and (max-width: 1050px){
+    .trip-grid {
+        grid-template-columns:  1fr 2fr;
+    }
+
+    .trip-grid--reverse {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+/* when the screen is at 900px width in the veiwport it will change the following css rules */
+@media screen and (max-width: 900px){
+    .wrapper {
+        padding: 0 5%;
+    }
+
+    .trip-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .trip-grid--reverse {
+        grid-template-columns: 1fr;
+    }
+
+    .trip-grid--reverse > img{
+        grid-column: 1;
+    }
+
+    .trip-grid--reverse >div {
+        grid-row: 2;
+    }
+}
+
+/* when the screen hits a width of 675px in the viewport it will change the css rule of h1 to decrese the font size */
+@media screen and (max-width:675px) {
+
+    h1 {
+        font-size: 50px;
+    }
+
+}
+
+/* changes the footer columns so that everything stacks in the footer */
+
+@media screen and (max-width: 510px){
+
+    .footer-grid{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-height: 675px) {
+
+    h1 {
+        margin-bottom: 20px;
+    }
+    
+    .hero {
+        min-height: 90vh;
+    }
+}
